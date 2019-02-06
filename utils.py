@@ -77,11 +77,11 @@ def center_crop(x, crop_h, crop_w,
   return scipy.misc.imresize(
       x[j:j+crop_h, i:i+crop_w], [resize_h, resize_w])
 
-def transform(image, input_height, input_width, 
+def transform(image, input_height, input_width,
               resize_height=64, resize_width=64, crop=True):
   if crop:
     cropped_image = center_crop(
-      image, input_height, input_width, 
+      image, input_height, input_width,
       resize_height, resize_width)
   else:
     cropped_image = scipy.misc.imresize(image, [resize_height, resize_width])
@@ -123,8 +123,8 @@ def to_json(output_path, *layers):
 
         lines += """
           var layer_%s = {
-            "layer_type": "fc", 
-            "sy": 1, "sx": 1, 
+            "layer_type": "fc",
+            "sy": 1, "sx": 1,
             "out_sx": 1, "out_sy": 1,
             "stride": 1, "pad": 0,
             "out_depth": %s, "in_depth": %s,
@@ -140,7 +140,7 @@ def to_json(output_path, *layers):
 
         lines += """
           var layer_%s = {
-            "layer_type": "deconv", 
+            "layer_type": "deconv",
             "sy": 5, "sx": 5,
             "out_sx": %s, "out_sy": %s,
             "stride": 2, "pad": 1,
