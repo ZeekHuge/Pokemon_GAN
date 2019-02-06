@@ -199,7 +199,7 @@ def train():
     sess.run(tf.global_variables_initializer())
     sess.run(tf.local_variables_initializer())
     # continue training
-    save_path = saver.save(sess, "/tmp/model.ckpt")
+    save_path = saver.save(sess, "./save/model.ckpt")
     ckpt = tf.train.latest_checkpoint('./model/' + version)
     saver.restore(sess, save_path)
     coord = tf.train.Coordinator()
